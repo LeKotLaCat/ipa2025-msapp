@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Sample app</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
 </head>
+
 <body>
     <h1>Register Router</h1>
     <form method="POST" action="{{ url_for('add_router') }}">
@@ -20,7 +22,7 @@
     <ul>
         {% for router in routers %}
         <li>
-            <a href="{{ url_for('router_detail', router_ip=router.ip) }}">{{ router.ip }}</a> 
+            <a href="{{ url_for('router_detail', router_ip=router.ip) }}">{{ router.ip }}</a>
             - {{ router.username }}
             <form method="POST" action="{{ url_for('delete_router', id=router._id) }}" style="display:inline">
                 <button type="submit">Delete</button>
@@ -30,4 +32,5 @@
     </ul>
 
 </body>
+
 </html>
