@@ -1,0 +1,17 @@
+# Environment file - DO NOT COMMIT THIS!
+.env
+
+# Python virtual environment
+venv/
+
+# Python cache files
+__pycache__/
+*.pyc
+*.pyo
+
+# IDE/Editor specific files
+.vscode/
+.idea/
+
+# Docker data volume (in case it gets created locally)
+mongo-data/

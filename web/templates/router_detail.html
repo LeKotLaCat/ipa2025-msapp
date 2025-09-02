@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Router Detail</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+    <h1>Router: {{ router_ip }}</h1>
+    <a href="{{ url_for('index') }}"><< Back to Router List</a>
+
+    {% if history %}
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>Timestamp</th>
+                    <th>Interface</th>
+                    <th>IP Address</th>
+                    <th>Status</th>
+                    <th>Protocol</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for status_entry in history %}
+                    {% for interface in status_entry.interfaces %}
+                        <tr>
+                            <td>{{ status_entry.timestamp.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+                            <td>{{ interface.interface }}</td>
+                            <td>{{ interface.ip_address }}</td>
+                            <td>{{ interface.status }}</td>
+                            <td>{{ interface.proto }}</td>
+                        </tr>
+                    {% endfor %}
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <h2>No interface status found for this router yet.</h2>
+        <p>Please wait for the next scheduler run.</p>
+    {% endif %}
+
+</body>
+</html>
