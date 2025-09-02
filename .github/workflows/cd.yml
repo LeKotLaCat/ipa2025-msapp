@@ -31,8 +31,8 @@ jobs:
             echo "MONGO__PASSWORD=${{ secrets.MONGO_INITDB_ROOT_PASSWORD }}"
             echo "RABBITMQ_DEFAULT_USER=${{ secrets.RABBITMQ_DEFAULT_USER }}"
             echo "RABBITMQ_DEFAULT_PASS=${{ secrets.RABBITMQ_DEFAULT_PASS }}"
-	    echo "DB_NAME=${{ secrets.DB_NAME }}"
-	    echo "MONGO_URI=${{ secrets.MONGO_URI }}"
+            echo "DB_NAME=${{ secrets.DB_NAME }}"
+            echo "MONGO_URI=${{ secrets.MONGO_URI }}"
           } > .env
           chmod 600 .env
 
