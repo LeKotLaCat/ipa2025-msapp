@@ -24,7 +24,7 @@ def router_detail(router_ip):
     status_history = (
         interface_status_collection.find({"router_ip": router_ip})
         .sort("timestamp", DESCENDING)
-        .limit(3)
+        .limit(5)
     )
 
     status_list = list(status_history)
